@@ -87,7 +87,22 @@ public class MatrixCalculator
 	 */
 	public long getLongestNumber()
 	{
-		
+		long max = 0;
+
+		if(numbers.length != 0) {
+
+			for (short i = 0; i < numbers.length; i++) {
+
+				for (int j = 0; j < numbers.length; j++) {
+
+					if(numbers[i][j] > max) {
+
+						max = numbers[i][j];
+					}
+				}
+			}
+		}
+		return max;
 	}
 
 
@@ -99,7 +114,22 @@ public class MatrixCalculator
 	 */
 	public short countEvenNumbers()
 	{
+		short evenCount = 0;
 		
+		if(numbers.length != 0) {
+			
+			for (int i = 0; i < numbers.length; i++) {
+				
+				for (int j = 0; j < numbers.length; j++) {
+					
+					if(numbers[i][j] % 2 == 0) {
+						
+						evenCount++;
+					}
+				}
+			}
+		}
+		return evenCount;
 	}
 
 	/**
@@ -111,7 +141,24 @@ public class MatrixCalculator
 	 */
 	public short countGreaterNumbers(long pNumber) throws Exception
 	{
+		short evenCount = 0;
 		
+		if(numbers.length != 0 && pNumber <= 0) {
+			
+			for (short i = 0; i < numbers.length; i++) {
+				
+				for (short j = 0; j < numbers.length; j++) {
+					
+					long num = numbers[i][j];
+					
+					if(num % 2 == 0 && num >= pNumber) {
+						
+						evenCount++;
+					}
+				}
+			}
+		}
+		return evenCount;
 	}
 
 
@@ -123,7 +170,40 @@ public class MatrixCalculator
 	 */
 	public float getNumbersAverage()
 	{
-
+		float average = 0;
+		long num = 0;
+		short denom = 0;
+		
+		if(numbers.length != 0) {
+			
+			for (short i = 0; i < numbers.length; i++) {
+				
+				for (short j = 0; j < numbers.length; j++) {
+					
+					long a = numbers[i][j];
+					num += a;
+					denom++;
+				}
+			}
+			if(denom > 0) {
+				
+				average = num / denom;
+			}
+		}
+		return average;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
