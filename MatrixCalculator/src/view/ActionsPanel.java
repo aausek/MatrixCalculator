@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,15 +23,21 @@ public class ActionsPanel extends JPanel implements ActionListener {
 	private JButton btnEven;
 	private JButton btnGreater;
 	private JButton btnAverage;
+	
+	private JPanel top;
+	private JPanel bottom;
 
 	private Frame frame; 
 
 	public ActionsPanel(Frame pFrame) {
 
 		frame = pFrame;
+		top = new JPanel();
+		bottom= new JPanel();
+		top.setLayout(new GridLayout(2,2));
+		bottom.setLayout(new GridLayout(1,1));
 
-		setLayout(new FlowLayout(FlowLayout.CENTER));
-		//setLayout(new GridLayout(3,2));
+		setLayout(new BorderLayout());
 		
 		btnInitialize = new JButton("Initialize Matrix");
 		btnInitialize.setActionCommand(INITIALIZE);
@@ -54,11 +59,14 @@ public class ActionsPanel extends JPanel implements ActionListener {
 		btnAverage.setActionCommand(AVERAGE);
 		btnAverage.addActionListener(this);
 
-		add(btnLongest);
-		add(btnEven);
-		add(btnGreater);
-		add(btnAverage);
-		add(btnInitialize);
+		top.add(btnLongest);
+		top.add(btnEven);
+		top.add(btnGreater);
+		top.add(btnAverage);
+		bottom.add(btnInitialize);
+		
+		add(top,BorderLayout.CENTER);
+		add(bottom,BorderLayout.SOUTH);
 
 		TitledBorder title = new TitledBorder("Actions");
 		setBorder(title);
@@ -68,7 +76,6 @@ public class ActionsPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 
 		String command = event.getActionCommand();
-
 
 		if(command.equals(INITIALIZE)) {
 

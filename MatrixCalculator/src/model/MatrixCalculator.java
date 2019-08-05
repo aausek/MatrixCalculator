@@ -141,14 +141,14 @@ public class MatrixCalculator
 	 */
 	public short countGreaterNumbers(long pNumber) throws Exception
 	{
-		short evenCount = 0;
+		short count = 0;
 
 		if(pNumber <= 0)
 		{
 			throw new Exception("Input a positive number");
 		}
 		
-		if(numbers.length != 0 && pNumber <= 0) {
+		if(numbers.length != 0) {
 
 			for (int i = 0; i < numbers.length; i++) {
 
@@ -156,14 +156,14 @@ public class MatrixCalculator
 
 					long num = numbers[i][j];
 
-					if(num % 2 == 0 && num >= pNumber) {
+					if(num >= pNumber) {
 
-						evenCount++;
+						count++;
 					}
 				}
 			}
 		}
-		return evenCount;
+		return count;
 	}
 
 
