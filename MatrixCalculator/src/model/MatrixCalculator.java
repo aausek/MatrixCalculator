@@ -85,9 +85,14 @@ public class MatrixCalculator
 	 * <b>Post: </b> Does not apply.<br>
 	 * @return the longest number of the matrix. 
 	 */
-	public long getLongestNumber()
+	public long getLongestNumber() throws Exception
 	{
 		long max = 0;
+		
+		if(numbers == null)
+		{
+			throw new Exception("You must initialize the matrix first.");
+		}
 
 		if(numbers.length != 0) {
 
@@ -112,9 +117,14 @@ public class MatrixCalculator
 	 * <b>Post: </b> Does not apply.<br>
 	 * @return the count of even numbers in the matrix. 
 	 */
-	public short countEvenNumbers()
+	public short countEvenNumbers() throws Exception
 	{
 		short evenCount = 0;
+		
+		if(numbers == null)
+		{
+			throw new Exception("You must initialize the matrix first.");
+		}
 
 		if(numbers.length != 0) {
 
@@ -173,11 +183,16 @@ public class MatrixCalculator
 	 * <b>Post: </b> Does not apply.<br>
 	 * @return the average of all the numbers of the matrix. 
 	 */
-	public float getNumbersAverage()
+	public float getNumbersAverage() throws Exception
 	{
 		float average = 0;
 		long num = 0;
 		short denom = 0;
+		
+		if(numbers == null)
+		{
+			throw new Exception("You must initialize the matrix first.");
+		}
 
 		if(numbers.length != 0) {
 
